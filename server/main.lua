@@ -61,23 +61,24 @@ local function HandlePriceChance()
     if random1 <= Crypto.ChanceOfCrashOrLuck then
         if random2 < 1 then --- go down in price
             if random3 <= Crypto.ChangeOfDoubleLuck then
-                currentValue = currentValue - math.random(Crypto.Crash2[1], Crypto.Crash2[2])
+                currentValue = currentValue / ( ( math.random(Crypto.Crash2[1], Crypto.Crash2[2]) + 10000) / 10000 )
             else
-                currentValue = currentValue - math.random(Crypto.Crash[1], Crypto.Crash[2])
+                currentValue = currentValue / ( ( math.random(Crypto.Crash[1], Crypto.Crash[2]) + 10000) / 10000 )
         else --- go up in price
             if random3 <= Crypto.ChangeOfDoubleLuck then
-                currentValue = currentValue + math.random(Crypto.Luck2[1], Crypto.Luck2[2])
+                currentValue = currentValue * ( ( math.random(Crypto.Luck2[1], Crypto.Luck2[2]) + 10000) / 10000 )
             else
-                currentValue = currentValue + math.random(Crypto.Luck[1], Crypto.Luck[2])
+                currentValue = currentValue * ( ( math.random(Crypto.Luck[1], Crypto.Luck[2]) + 10000) / 10000 )
         end
     else
         if random2 < 1 then --- go down in price
-            currentValue = currentValue - math.random(Crypto.CasualDown[1], Crypto.CasualDown[2])
+            currentValue = currentValue / ( ( math.random(Crypto.CasualDown[1], Crypto.CasualDown[2]) + 10000) / 10000 )
         else
-            currentValue = currentValue + math.random(Crypto.CasualUp[1], Crypto.CasualUp[2])
+            currentValue = currentValue * ( ( math.random(Crypto.CasualUp[1], Crypto.CasualUp[2]) + 10000) / 10000 )
         end
     end
 
+    
     if currentValue <= Crypto.Lower then
         currentValue = Crypto.Lower
     elseif currentValue >= Crypto.Upper then
