@@ -1,6 +1,6 @@
 Crypto = {
-        Lower = 500,
-        Upper = 5000,
+        Lower = 1,
+        Upper = 1000000,
     History = {
         ["qbit"] = {}
     },
@@ -23,12 +23,12 @@ Crypto = {
 
     -- For auto updating the value of qbit
     Coin = 'qbit',
-    RefreshTimer = 10, -- In minutes, so every 10 minutes.
+    RefreshTimer = 0.12, -- In minutes, so every 10 minutes.
 
     -- Crashes or luck
     ChanceOfCrashOrLuck = 2, -- This is in % (1-100)
     Crash = {20,80}, -- Min / Max
-    Luck = {20,45}, -- Min / Max
+    Luck = {10,20}, -- Min / Max
 
     -- If not not Chance of crash or luck, then this shit
     ChanceOfDown = 30, -- If out of 100 hits less or equal to
