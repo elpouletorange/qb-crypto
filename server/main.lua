@@ -54,21 +54,27 @@ end
 local function HandlePriceChance()
     local currentValue = Crypto.Worth[coin]
     local prevValue = Crypto.Worth[coin]
-    local trend = math.random(0, 100)
-    local event = math.random(0, 100)
-    local chance = event - Crypto.ChanceOfCrashOrLuck
+    local random1 = math.random(0, 100)
+    local random2 = math.random(0, 1)
+    local random3 = math.random(0, 100)
 
-    if event > chance then
-        if trend <= Crypto.ChanceOfDown then
-            currentValue = currentValue - math.random(Crypto.CasualDown[1], Crypto.CasualDown[2])
-        elseif trend >= Crypto.ChanceOfUp then
-            currentValue = currentValue + math.random(Crypto.CasualUp[1], Crypto.CasualUp[2])
+    if random1 <= Crypto.ChanceOfCrashOrLuck then
+        if random2 < 1 then --- go down in price
+            if random3 <= Crypto.ChangeOfDoubleLuck then
+                currentValue = currentValue - math.random(Crypto.Crash2[1], Crypto.Crash2[2])
+            else
+                currentValue = currentValue - math.random(Crypto.Crash[1], Crypto.Crash[2])
+        else --- go up in price
+            if random3 <= Crypto.ChangeOfDoubleLuck then
+                currentValue = currentValue + math.random(Crypto.Luck2[1], Crypto.Luck2[2])
+            else
+                currentValue = currentValue + math.random(Crypto.Luck[1], Crypto.Luck[2])
         end
     else
-        if math.random(0, 1) == 1 then
-            currentValue = currentValue + math.random(Crypto.Luck[1], Crypto.Luck[2])
+        if random2 < 1 then --- go down in price
+            currentValue = currentValue - math.random(Crypto.CasualDown[1], Crypto.CasualDown[2])
         else
-            currentValue = currentValue - math.random(Crypto.Crash[1], Crypto.Crash[2])
+            currentValue = currentValue + math.random(Crypto.CasualUp[1], Crypto.CasualUp[2])
         end
     end
 
