@@ -27,14 +27,15 @@ Crypto = {
 
     -- Crashes or luck
     ChanceOfCrashOrLuck = 2, -- This is in % (1-100)
-    Crash = {20,80}, -- Min / Max
-    Luck = {10,20}, -- Min / Max
+    ChangeOfDoubleLuck = 5, -- new
+    Crash = {1500,2500}, -- Min / Max
+    Crash2 = {2500,5000}, -- Min / Max
+    Luck = {2000,2000}, -- Min / Max
+    Luck2 = {3500,4000}, -- Min / Max
 
     -- If not not Chance of crash or luck, then this shit
-    ChanceOfDown = 30, -- If out of 100 hits less or equal to
-    ChanceOfUp = 60, -- If out of 100 is greater or equal to
-    CasualDown = {1,10}, -- Min / Max (If it goes down)
-    CasualUp = {1,10}, -- Min / Max (If it goes up)
+    CasualDown = {100,500}, -- Min / Max (If it goes down)
+    CasualUp = {55,555}, -- Min / Max (If it goes up)
 }
 
 
