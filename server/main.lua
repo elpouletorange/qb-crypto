@@ -88,15 +88,23 @@ local function HandlePriceChance()
     end
 
     if Crypto.History[coin][4] then
-        -- Shift array index 1 to 3
-        for k = 3, 1, -1 do
-            Crypto.History[coin][k] = Crypto.History[coin][k + 1]
-        end
-        -- Assign array index 4 to the latest result
-        Crypto.History[coin][4] = { PreviousWorth = prevValue, NewWorth = currentValue }
-    else
-        Crypto.History[coin][#Crypto.History[coin] + 1] = { PreviousWorth = prevValue, NewWorth = currentValue }
+    -- Shift array index 1 to 3
+    for k = 3, 1, -1 do
+        Crypto.History[coin][k] = Crypto.History[coin][k + 1]
     end
+    -- Assign array index 4 to the latest result with rounded values
+    Crypto.History[coin][4] = { 
+        PreviousWorth = math.floor(prevValue + 0.5), -- Round to nearest whole number
+        NewWorth = math.floor(currentValue + 0.5) -- Round to nearest whole number
+    }
+else
+    -- Append the new values with rounded numbers
+    Crypto.History[coin][#Crypto.History[coin] + 1] = { 
+        PreviousWorth = math.floor(prevValue + 0.5), -- Round to nearest whole number
+        NewWorth = math.floor(currentValue + 0.5) -- Round to nearest whole number
+    }
+end
+
 
     Crypto.Worth[coin] = currentValue
 
