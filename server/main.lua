@@ -60,13 +60,13 @@ local function HandlePriceChance()
 
     if random1 <= Crypto.ChanceOfCrashOrLuck then
         if random2 < 1 then --- go down in price
-            if random3 <= Crypto.ChangeOfDoubleLuck then
+            if random3 <= Crypto.ChanceOfDoubleLuck then
                 currentValue = currentValue / ( ( math.random(Crypto.Crash2[1], Crypto.Crash2[2]) + 10000) / 10000 )
             else
                 currentValue = currentValue / ( ( math.random(Crypto.Crash[1], Crypto.Crash[2]) + 10000) / 10000 )
             end
         else --- go up in price
-            if random3 <= Crypto.ChangeOfDoubleLuck then
+            if random3 <= Crypto.ChanceOfDoubleLuck then
                 currentValue = currentValue * ( ( math.random(Crypto.Luck2[1], Crypto.Luck2[2]) + 10000) / 10000 )
             else
                 currentValue = currentValue * ( ( math.random(Crypto.Luck[1], Crypto.Luck[2]) + 10000) / 10000 )
