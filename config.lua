@@ -23,15 +23,15 @@ Crypto = {
 
     -- For auto updating the value of qbit
     Coin = 'qbit',
-    RefreshTimer = 0.25, -- In minutes, so every 15 seconds
+    RefreshTimer = 0.01, -- In minutes, so every 15 seconds
 
     -- Crashes or luck
-    ChanceOfCrashOrLuck = 2, -- This is in % (1-100)
-    ChangeOfDoubleLuck = 5, -- new
-    Crash = {150,250}, -- Min / Max
-    Crash2 = {250,500}, -- Min / Max
-    Luck = {200,200}, -- Min / Max
-    Luck2 = {350,400}, -- Min / Max
+    ChanceOfCrashOrLuck = 20, -- This is in % (1-100)
+    ChanceOfDoubleLuck = 50, -- new
+    Crash = {100,500}, -- Min / Max
+    Crash2 = {500,1000}, -- Min / Max
+    Luck = {105,505}, -- Min / Max
+    Luck2 = {510,1010}, -- Min / Max
 
     -- If not not Chance of crash or luck, then this shit
     CasualDown = {10,50}, -- Min / Max (If it goes down)
