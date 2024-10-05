@@ -23,7 +23,7 @@ Crypto = {
 
     -- For auto updating the value of qbit
     Coin = 'qbit',
-    RefreshTimer = 0.3, -- In minutes, so every 15 seconds
+    RefreshTimer = 60, -- In minutes, so every hour. = 40 days to double worth 
 
     -- Crashes or luck
     ChanceOfCrashOrLuck = 2, -- This is in % (1-100)
